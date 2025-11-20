@@ -1,14 +1,15 @@
 <?php
 
 namespace RevStrat\AgeGate;
-use SilverStripe\ORM\DataExtension;
+
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
-class PageExtension extends DataExtension {
+class PageExtension extends Extension {
     private static $db = [
         'AgeGated' => 'Boolean',
         'MinimumAgeOverrride' => 'Int',

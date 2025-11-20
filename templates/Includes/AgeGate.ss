@@ -1,8 +1,8 @@
-<% if ShowAgeGate && URLSegment != Security %>
+<% if $ShowAgeGate && $URLSegment != $Security %>
 <div class="AgeGate">
     <div class="overlay">
         <div class="content">
-            <% if AgeGateContentOverride %>
+            <% if $AgeGateContentOverride %>
                 $AgeGateContentOverride
             <% else %>
                 $SiteConfig.AgeGateContent
@@ -11,6 +11,6 @@
         </div>
     </div>
 </div>
-<% require css("revstrat/silverstripe-agegate:css/agegate.css") %>
-<% require javascript("revstrat/silverstripe-agegate:javascript/agegate.js") %>
+<% require css("moritz-sauer-13/silverstripe-agegate:css/agegate.css") %>
+<% require javascript("moritz-sauer-13/silverstripe-agegate:javascript/agegate.js") %>
 <% end_if %>

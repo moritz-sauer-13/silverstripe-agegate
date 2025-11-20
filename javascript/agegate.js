@@ -1,31 +1,41 @@
-var form = $('.AgeGate form');
-$(':submit', form).click(function() {
-    if ($(this).attr('name')) {
-        $(form).append(
-            $("<input type='hidden'>").attr({
-                name: $(this).attr('name'),
-                value: $(this).attr('value')
-            })
-        );
-    }
-});
-$(form).submit(function(e) {
-    e.preventDefault();
-    $.ajax({
-        type: form.attr('method'),
-        url: form.attr('action'),
-        data: form.serialize()
-    })
-    .done(function (response) {
-        var result = JSON.parse(response);
-        if (result.success) {
-            $('.AgeGate').fadeOut();
-        } else {
-            if (!result.redirect && result.message) {
-                $('.AgeGate .content').append(result.message);
-            } else {
-                window.location = result.redirect;
-            }
+var form = document.querySelector('.AgeGate form');
+
+// Klick auf Submit-Buttons abfangen
+form.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(function(btn) {
+    btn.addEventListener('click', function () {
+        if (btn.name) {
+            var hidden = document.createElement('input');
+            hidden.type = 'hidden';
+            hidden.name = btn.name;
+            hidden.value = btn.value;
+            form.appendChild(hidden);
         }
     });
+});
+
+// Form-Submit abfangen
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var formData = new FormData(form);
+
+    fetch(form.getAttribute('action'), {
+        method: form.getAttribute('method'),
+        body: formData
+    })
+        .then(function(response) { return response.text(); })
+        .then(function(responseText) {
+            var result = JSON.parse(responseText);
+
+            if (result.success) {
+                // jQuery fadeOut Ersatz (ohne Animation)
+                document.querySelector('.AgeGate').style.display = 'none';
+            } else {
+                if (!result.redirect && result.message) {
+                    document.querySelector('.AgeGate .content').insertAdjacentHTML('beforeend', result.message);
+                } else {
+                    window.location = result.redirect;
+                }
+            }
+        });
 });

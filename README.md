@@ -1,3 +1,5 @@
+This is a Fork of https://github.com/RevStrat/silverstripe-agegate to Support SS5
+
 # SilverStripe AgeGate
 
 This module provides an age-gate function, with support for the IPStack API or GeoLite2 database. Please provide your own GeoLite2 database in the ```data``` folder.

@@ -2,7 +2,7 @@
 
 namespace RevStrat\AgeGate;
 
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\FieldList;
@@ -10,11 +10,11 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Config\Configurable;
 use SilverStripe\Core\Injector\Injector;
-use Silverstripe\SiteConfig\SiteConfig;
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
 use SilverStripe\Control\Cookie;
+use Silverstripe\SiteConfig\SiteConfig;
 
-class PageControllerExtension extends DataExtension {
+class PageControllerExtension extends Extension {
     use Configurable;
 
     /**
@@ -90,7 +90,7 @@ class PageControllerExtension extends DataExtension {
             try {
                 $ip = $request->getIP();
                 if (!$ip) {
-                    throw new Exception('Could net get IP address from request. Falling back on age gate defaults.');
+                    throw new \Exception('Could net get IP address from request. Falling back on age gate defaults.');
                 }
                 $resolverClass = $this->config()->geoip_source;
                 $resolver = new $resolverClass;
@@ -107,7 +107,7 @@ class PageControllerExtension extends DataExtension {
                     ]));
                 }
                 $this->minimumAge = $this->AgeForCountryCode($this->countryCode);
-            } catch (Exception $lookupError) {
+            } catch (\Exception $lookupError) {
                 // Lookup failed. If we need to track this, insert code here
             }
         }
