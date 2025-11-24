@@ -25,10 +25,11 @@ class CountryAgeGateConfig extends Extension
 
     public function updateCMSFields(FieldList $fields)
     {
-        $fields->addFieldToTab('Root.AgeGateControl', CheckboxField::create('GlobalAgeGate', 'Activate age gate for all pages'));
-        $fields->addFieldToTab('Root.AgeGateControl', HTMLEditorField::create('AgeGateContent', 'Age Gate Content'));
-        $fields->addFieldToTab('Root.AgeGateControl', TextField::create('AccessDeniedURL', 'Redirect for access denied'));
-        $fields->addFieldToTab('Root.AgeGateControl', HTMLEditorField::create('RedirectMessage', 'Message to show if no redirect is present'));
-        $fields->addFieldToTab('Root.AgeGateControl', GridField::create('AgeGateCountries', 'Age Gate Countries', AgeGateCountry::get(), GridFieldConfig_RecordEditor::create()));
+        $fields->findOrMakeTab('Root.AgeGateControl', _t(__CLASS__ . '.TAB_TITLE', 'Age Gate Control'));
+        $fields->addFieldToTab('Root.AgeGateControl', CheckboxField::create('GlobalAgeGate', _t(__CLASS__ . '.GLOBAL_AGE_GATE', 'Activate age gate for all pages')));
+        $fields->addFieldToTab('Root.AgeGateControl', HTMLEditorField::create('AgeGateContent', _t(__CLASS__ . '.CONTENT', 'Age Gate Content')));
+        $fields->addFieldToTab('Root.AgeGateControl', TextField::create('AccessDeniedURL', _t(__CLASS__ . '.ACCESS_DENIED_URL', 'Redirect for access denied')));
+        $fields->addFieldToTab('Root.AgeGateControl', HTMLEditorField::create('RedirectMessage', _t(__CLASS__ . '.REDIRECT_MESSAGE', 'Message to show if no redirect is present')));
+        $fields->addFieldToTab('Root.AgeGateControl', GridField::create('AgeGateCountries', _t(__CLASS__ . '.COUNTRIES', 'Age Gate Countries'), AgeGateCountry::get(), GridFieldConfig_RecordEditor::create()));
     }
 }

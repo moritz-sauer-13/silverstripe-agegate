@@ -1,0 +1,22 @@
+en:
+  RevStrat\AgeGate\PageControllerExtension:
+    CHECKBOX_LABEL: 'I confirm I am at least %d years old'
+    SUBMIT_LABEL: 'Enter'
+  RevStrat\AgeGate\PageExtension:
+    TAB_TITLE: 'Age Gate Control'
+    AGE_GATED: 'Age gated'
+    MIN_AGE_OVERRIDE: 'Override minimum age'
+    ACCESS_DENIED_URL_OVERRIDE: 'Override access denied URL'
+    CONTENT_OVERRIDE: 'Override content for age gate on this page'
+  RevStrat\AgeGate\CountryAgeGateConfig:
+    TAB_TITLE: 'Age Gate Control'
+    GLOBAL_AGE_GATE: 'Activate age gate for all pages'
+    CONTENT: 'Age Gate Content'
+    ACCESS_DENIED_URL: 'Redirect for access denied'
+    REDIRECT_MESSAGE: 'Message to show if no redirect is present'
+    COUNTRIES: 'Age Gate Countries'
+  RevStrat\AgeGate\AgeGateCountry:
+    PLURAL_NAME: 'Age Gate Countries'
+    SINGULAR_NAME: 'Age Gate Country'
+    db_CountryCode: 'Country Code'
+    db_Age: 'Age'

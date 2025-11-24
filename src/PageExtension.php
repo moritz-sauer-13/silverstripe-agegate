@@ -18,9 +18,10 @@ class PageExtension extends Extension {
     ];
 
     public function updateCMSFields(FieldList $fields) {
-        $fields->addFieldToTab('Root.AgeGateControl', CheckboxField::create('AgeGated', 'Age gated'));
-        $fields->addFieldToTab('Root.AgeGateControl', NumericField::create('MinimumAgeOverrride', 'Override minimum age'));
-        $fields->addFieldToTab('Root.AgeGateControl', TextField::create('AccessDeniedURLOverride', 'Override access denied URL'));
-        $fields->addFieldToTab('Root.AgeGateControl', HTMLEditorField::create('AgeGateContentOverride', 'Override content for age gate on this page'));
+        $fields->findOrMakeTab('Root.AgeGateControl', _t(__CLASS__ . '.TAB_TITLE', 'Age Gate Control'));
+        $fields->addFieldToTab('Root.AgeGateControl', CheckboxField::create('AgeGated', _t(__CLASS__ . '.AGE_GATED', 'Age gated')));
+        $fields->addFieldToTab('Root.AgeGateControl', NumericField::create('MinimumAgeOverrride', _t(__CLASS__ . '.MIN_AGE_OVERRIDE', 'Override minimum age')));
+        $fields->addFieldToTab('Root.AgeGateControl', TextField::create('AccessDeniedURLOverride', _t(__CLASS__ . '.ACCESS_DENIED_URL_OVERRIDE', 'Override access denied URL')));
+        $fields->addFieldToTab('Root.AgeGateControl', HTMLEditorField::create('AgeGateContentOverride', _t(__CLASS__ . '.CONTENT_OVERRIDE', 'Override content for age gate on this page')));
     }
 }
