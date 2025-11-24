@@ -1,15 +1,15 @@
 de:
   RevStrat\AgeGate\PageControllerExtension:
     CHECKBOX_LABEL: 'Ich bestätige, dass ich mindestens %d Jahre alt bin'
-    SUBMIT_LABEL: 'Eintreten'
+    SUBMIT_LABEL: 'Bestätigen'
   RevStrat\AgeGate\PageExtension:
-    TAB_TITLE: 'Altersüberprüfung Steuerung'
-    AGE_GATED: 'Altersüberprüfung aktiv'
+    TAB_TITLE: 'Altersüberprüfung'
+    AGE_GATED: 'Altersüberprüfung aktivieren?'
     MIN_AGE_OVERRIDE: 'Mindestalter überschreiben'
-    ACCESS_DENIED_URL_OVERRIDE: 'Zugriff verweigert URL überschreiben'
-    CONTENT_OVERRIDE: 'Inhalt für Altersüberprüfung auf dieser Seite überschreiben'
+    ACCESS_DENIED_URL_OVERRIDE: '"Zugriff verweigert" URL überschreiben'
+    CONTENT_OVERRIDE: 'Inhalt für die Altersüberprüfung auf dieser Seite überschreiben'
   RevStrat\AgeGate\CountryAgeGateConfig:
-    TAB_TITLE: 'Altersüberprüfung Steuerung'
+    TAB_TITLE: 'Altersüberprüfung'
     GLOBAL_AGE_GATE: 'Altersüberprüfung für alle Seiten aktivieren'
     CONTENT: 'Inhalt der Altersüberprüfung'
     ACCESS_DENIED_URL: 'Weiterleitung bei verweigertem Zugriff'
